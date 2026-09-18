@@ -212,7 +212,8 @@ export default function Site() {
             backgroundSize: "88% auto",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07131c] via-[#07131ccf] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07131c] via-[#07131ce6] to-[#07131c26]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07131c] via-[#07131caa] to-transparent" />
         <div className="container relative z-10 py-12">
           <div className="max-w-[650px] text-white">
             <div className="eyebrow text-white/70">
