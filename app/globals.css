@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --orange: #ff6b13;
+  --ink: #0c1720;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
+}
+.container {
+  width: min(100% - 64px, 1180px);
+  margin: auto;
+}
+.section {
+  padding: 54px 0;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow:before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  background: var(--orange);
+  display: block;
+}
+.feature-swiper .swiper-pagination {
+  bottom: 11px;
+  right: 62px;
+  left: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.feature-swiper .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  margin: 0 !important;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+  font-size: 8px;
+  line-height: 1;
+}
+.feature-swiper .swiper-pagination-bullet-active {
+  color: var(--orange);
+  font-weight: 800;
+}
+.feature-swiper .swiper-button-prev,
+.feature-swiper .swiper-button-next {
+  top: auto;
+  bottom: 5px;
+  width: 16px;
+  height: 20px;
+  margin: 0;
+  color: #fff;
+}
+.feature-swiper .swiper-button-prev {
+  right: 38px;
+  left: auto;
+}
+.feature-swiper .swiper-button-next {
+  right: 16px;
+}
+.feature-swiper .swiper-button-prev:after,
+.feature-swiper .swiper-button-next:after {
+  font-size: 13px;
+  font-weight: 300;
+}
+@media (max-width: 640px) {
+  .hero-image {
+    background-size: cover !important;
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 30px, 820px);
+  }
+}
