@@ -3,6 +3,8 @@
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Lightbulb } from "lucide-react";
+import type { SpecialProductSlide } from "@/lib/site-content";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,88 +13,15 @@ import "swiper/css/effect-fade";
 
 import "./SpecialProduct.css";
 
-const products = [
-  {
-    category: "ЧАНАРТАЙ БҮТЭЭГДЭХҮҮН",
-    title: "Их талбайн гэрэлтүүлэг",
-    description:
-      "Барилга, талбай, үйлдвэрийн зориулалттай өндөр хүчин чадалтай LED гэрэлтүүлэг.",
-    image: "/images/s2.png",
-    features: [
-      {
-        icon: "shield",
-        title: "IP67",
-        description: "Усны хамгаалалт",
-      },
-      {
-        icon: "clock",
-        title: "50,000+ цаг",
-        description: "Ашиглалтын хугацаа",
-      },
-      {
-        icon: "bolt",
-        title: "Өндөр үр ашиг",
-        description: "Эрчим хүчний хэмнэлт",
-      },
-    ],
-  },
-
-  {
-    category: "МЭРГЭЖЛИЙН ГЭРЭЛТҮҮЛЭГ",
-    title: "Үйлдвэрийн LED гэрэл",
-    description:
-      "Үйлдвэр, агуулах болон томоохон талбайд ашиглах зориулалттай хүчирхэг LED гэрэл.",
-    image: "/images/s1.png",
-    features: [
-      {
-        icon: "shield",
-        title: "IP65",
-        description: "Тоос, усны хамгаалалт",
-      },
-      {
-        icon: "clock",
-        title: "60,000+ цаг",
-        description: "Удаан ашиглалт",
-      },
-      {
-        icon: "bolt",
-        title: "150W",
-        description: "Өндөр хүчин чадал",
-      },
-    ],
-  },
-
-  {
-    category: "ГАДНА ТАЛБАЙН",
-    title: "Гудамжны LED гэрэлтүүлэг",
-    description:
-      "Зам талбай, гудамж болон гадна орчинд зориулсан эрчим хүчний хэмнэлттэй шийдэл.",
-    image: "/images/s3.png",
-    features: [
-      {
-        icon: "shield",
-        title: "IP66",
-        description: "Бат бөх хийц",
-      },
-      {
-        icon: "clock",
-        title: "50,000+ цаг",
-        description: "Ашиглалтын хугацаа",
-      },
-      {
-        icon: "bolt",
-        title: "120W",
-        description: "Эрчим хүчний хэмнэлт",
-      },
-    ],
-  },
-];
-
 /* =========================
    ICON
 ========================= */
 
 function FeatureIcon({ type }: { type: string }) {
+  if (type === "lightbulb") {
+    return <Lightbulb size={20} strokeWidth={1.6} />;
+  }
+
   if (type === "shield") {
     return (
       <svg viewBox="0 0 24 24" fill="none">
@@ -150,7 +79,11 @@ function FeatureIcon({ type }: { type: string }) {
    COMPONENT
 ========================= */
 
-export default function SpecialProduct() {
+export default function SpecialProduct({
+  products,
+}: {
+  products: SpecialProductSlide[];
+}) {
   return (
     <section className="special-product">
       <Swiper
@@ -159,7 +92,7 @@ export default function SpecialProduct() {
         fadeEffect={{
           crossFade: true,
         }}
-        loop={true}
+        loop={products.length > 1}
         speed={700}
         autoplay={{
           delay: 5000,
@@ -175,8 +108,8 @@ export default function SpecialProduct() {
         }}
         className="special-product-swiper"
       >
-        {products.map((product, index) => (
-          <SwiperSlide key={index}>
+        {products.map((product) => (
+          <SwiperSlide key={product.id}>
             <div className="special-product-slide">
               {/* =========================
                   BACKGROUND
@@ -198,8 +131,8 @@ export default function SpecialProduct() {
 
                 <p>{product.description}</p>
 
-                <a href="#" className="special-product-button">
-                  Дэлгэрэнгүй
+                <a href={product.linkHref} className="special-product-button">
+                  {product.linkLabel}
                   <svg viewBox="0 0 20 20" fill="none">
                     <path
                       d="M4 10H16M11 5L16 10L11 15"
@@ -227,7 +160,7 @@ export default function SpecialProduct() {
               <div className="special-product-info">
                 <div className="special-product-features">
                   {product.features.map((feature, featureIndex) => (
-                    <div className="special-product-feature" key={featureIndex}>
+                    <div className="special-product-feature" key={feature.id}>
                       <div className="special-product-icon">
                         <FeatureIcon type={feature.icon} />
                       </div>

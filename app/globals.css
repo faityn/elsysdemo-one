@@ -15,7 +15,7 @@ body {
   margin: 0;
   background: #fff;
   color: var(--ink);
-  font-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
+  font-family: "Noto Sans Variable", sans-serif;
 }
 .container {
   width: min(100% - 64px, 1180px);
@@ -23,6 +23,39 @@ body {
 }
 .section {
   padding: 54px 0;
+}
+.admin-rich-editor .tiptap {
+  min-height: 120px;
+  outline: none;
+}
+.admin-rich-editor .tiptap p,
+.rich-text-content p {
+  margin: 0 0 0.65em;
+}
+.admin-rich-editor .tiptap p:last-child,
+.rich-text-content p:last-child {
+  margin-bottom: 0;
+}
+.admin-rich-editor .tiptap ul,
+.admin-rich-editor .tiptap ol,
+.rich-text-content ul,
+.rich-text-content ol {
+  margin: 0.5em 0;
+  padding-left: 1.5em;
+}
+.admin-rich-editor .tiptap ul,
+.rich-text-content ul {
+  list-style: disc;
+}
+.admin-rich-editor .tiptap ol,
+.rich-text-content ol {
+  list-style: decimal;
+}
+.rich-text-content blockquote {
+  border-left: 3px solid var(--orange);
+  margin: 0.75em 0;
+  padding-left: 0.9em;
+  color: #59635b;
 }
 .eyebrow {
   font-size: 10px;
