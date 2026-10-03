@@ -446,6 +446,13 @@ export default function AdminHomeEditor() {
                     <option value="shield">Хамгаалалт</option>
                     <option value="clock">Хугацаа</option>
                     <option value="bolt">Хүчин чадал</option>
+                    <option value="check">Шалгалт</option>
+                    <option value="dollar">Үнэ</option>
+                    <option value="star">Онцлох</option>
+                    <option value="gauge">Үр ашиг</option>
+                    <option value="wrench">Засвар үйлчилгээ</option>
+                    <option value="globe">Холболт</option>
+                    <option value="package">Бүтээгдэхүүн</option>
                   </select>
                 </label>
                 <Field

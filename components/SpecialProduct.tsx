@@ -3,7 +3,16 @@
 import { Autoplay, Navigation, Pagination, EffectFade } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Lightbulb } from "lucide-react";
+import {
+  Check,
+  DollarSign,
+  Gauge,
+  Globe,
+  Lightbulb,
+  Package,
+  Star,
+  Wrench,
+} from "lucide-react";
 import type { SpecialProductSlide } from "@/lib/site-content";
 
 import "swiper/css";
@@ -20,6 +29,34 @@ import "./SpecialProduct.css";
 function FeatureIcon({ type }: { type: string }) {
   if (type === "lightbulb") {
     return <Lightbulb size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "check") {
+    return <Check size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "dollar") {
+    return <DollarSign size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "star") {
+    return <Star size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "gauge") {
+    return <Gauge size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "wrench") {
+    return <Wrench size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "globe") {
+    return <Globe size={20} strokeWidth={1.6} />;
+  }
+
+  if (type === "package") {
+    return <Package size={20} strokeWidth={1.6} />;
   }
 
   if (type === "shield") {

@@ -36,7 +36,18 @@ export type CareerOpening = {
 };
 export type SpecialProductFeature = {
   id: string;
-  icon: "lightbulb" | "shield" | "clock" | "bolt";
+  icon:
+    | "lightbulb"
+    | "shield"
+    | "clock"
+    | "bolt"
+    | "check"
+    | "dollar"
+    | "star"
+    | "gauge"
+    | "wrench"
+    | "globe"
+    | "package";
   title: string;
   description: string;
 };
@@ -509,9 +520,19 @@ export async function loadSiteContent(): Promise<SiteContent> {
     const featuresBySlide = new Map<string, SpecialProductFeature[]>();
     for (const feature of specialFeatures.data ?? []) {
       const slideFeatures = featuresBySlide.get(feature.slide_id) ?? [];
-      const icon = ["lightbulb", "shield", "clock", "bolt"].includes(
-        feature.icon,
-      )
+      const icon = [
+        "lightbulb",
+        "shield",
+        "clock",
+        "bolt",
+        "check",
+        "dollar",
+        "star",
+        "gauge",
+        "wrench",
+        "globe",
+        "package",
+      ].includes(feature.icon)
         ? (feature.icon as SpecialProductFeature["icon"])
         : "bolt";
       slideFeatures.push({
