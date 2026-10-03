@@ -1,4 +1,5 @@
 import {
+  Facebook,
   Instagram,
   Linkedin,
   Mail,
@@ -23,10 +24,24 @@ export default function SiteFooter({ content }: { content: SiteContent }) {
             <div className="text-[8px] tracking-[.2em] text-slate-500">
               {content.brand.tagline}
             </div>
+
             <div className="mt-7 flex gap-3 text-slate-300">
-              <Instagram size={15} />
-              <Youtube size={15} />
-              <Linkedin size={15} />
+              <a
+                href="https://www.facebook.com/elsys.engineering"
+                className="hover:text-orange-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Facebook size={15} />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UC8z3X9xcBC_Ch63r8cRunIQ"
+                className="hover:text-orange-500"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Youtube size={15} />
+              </a>
             </div>
           </div>
           <div>
