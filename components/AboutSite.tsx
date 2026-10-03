@@ -279,6 +279,16 @@ export default function AboutSite() {
                               .join(".")}
                           </span>
                         )}
+                        <div className="rounded-sm bg-[#f5f6f4] px-2.5 py-1.5">
+                          info@elsys.mn хаягруу илгээнэ үү
+                        </div>
+                        <a
+                          href="/anket.pdf"
+                          download="anket.pdf"
+                          className="rounded-sm bg-[#d95610] px-2.5 py-1.5 text-white hover:bg-[#a93d08]"
+                        >
+                          Анкет татах
+                        </a>
                       </div>
                     </div>
                   </details>
