@@ -10,6 +10,7 @@ import {
 } from "@/lib/site-content";
 import AdminFrame, { Field, Panel } from "./AdminFrame";
 import RichTextEditor from "./RichTextEditor";
+import { getAdminAccessToken } from "@/lib/supabase";
 
 export default function AdminProductForm({
   productId,
@@ -107,8 +108,10 @@ export default function AdminProductForm({
           type: "image/webp",
         }),
       );
+      const accessToken = await getAdminAccessToken();
       const response = await fetch("/api/uploads", {
         method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}` },
         body: formData,
       });
       const result = (await response.json()) as {

@@ -1,1 +1,33 @@
-{"name":"elsys-orange-site","version":"1.0.0","private":true,"scripts":{"dev":"next dev","build":"next build","start":"next start"},"dependencies":{"@fontsource-variable/noto-sans":"^5.3.0","@supabase/supabase-js":"^2.117.2","@tiptap/react":"^3.31.4","@tiptap/starter-kit":"^3.31.4","@types/node":"^20.14.12","@types/react":"^18.3.3","@types/react-dom":"^18.3.0","dompurify":"^3.4.16","framer-motion":"^11.3.19","lucide-react":"^0.468.0","next":"^14.2.5","react":"^18.3.1","react-dom":"^18.3.1","swiper":"^11.1.9","typescript":"^5.5.4"},"devDependencies":{"@types/dompurify":"^3.0.5","autoprefixer":"^10.4.19","postcss":"^8.4.40","tailwindcss":"^3.4.7"}}
+{
+  "name": "elsys-orange-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans": "^5.3.0",
+    "@supabase/supabase-js": "^2.117.2",
+    "@tiptap/react": "^3.31.4",
+    "@tiptap/starter-kit": "^3.31.4",
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "dompurify": "^3.4.16",
+    "framer-motion": "^11.3.19",
+    "lucide-react": "^0.468.0",
+    "next": "^14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swiper": "^11.1.9",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7"
+  }
+}

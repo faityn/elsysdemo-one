@@ -1,6 +1,7 @@
 "use client";
 import { ChangeEvent, useState } from "react";
 import { Check, FileImage, Upload } from "lucide-react";
+import { getAdminAccessToken } from "@/lib/supabase";
 import AdminFrame, { Panel } from "./AdminFrame";
 
 export default function AdminUploads() {
@@ -60,8 +61,10 @@ export default function AdminUploads() {
           type: "image/webp",
         }),
       );
+      const accessToken = await getAdminAccessToken();
       const response = await fetch("/api/uploads", {
         method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}` },
         body: formData,
       });
       const result = (await response.json()) as {

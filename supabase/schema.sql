@@ -130,8 +130,12 @@ begin
     execute format('alter table public.%I enable row level security', table_name);
     execute format('drop policy if exists "Public read %1$s" on public.%1$s', table_name);
     execute format('drop policy if exists "Demo write %1$s" on public.%1$s', table_name);
+    execute format('drop policy if exists "Admin write %1$s" on public.%1$s', table_name);
     execute format('create policy "Public read %1$s" on public.%1$s for select using (true)', table_name);
-    execute format('create policy "Demo write %1$s" on public.%1$s for all using (true) with check (true)', table_name);
+    execute format(
+      'create policy "Admin write %1$s" on public.%1$s for all to authenticated using ((auth.jwt() -> ''app_metadata'' ->> ''role'') = ''admin'') with check ((auth.jwt() -> ''app_metadata'' ->> ''role'') = ''admin'')',
+      table_name
+    );
   end loop;
 end $$;
 

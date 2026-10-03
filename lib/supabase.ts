@@ -12,3 +12,11 @@ export function getSupabaseBrowserClient(): SupabaseClient {
   client = createClient(url, anonKey);
   return client;
 }
+
+export async function getAdminAccessToken(): Promise<string> {
+  const { data, error } = await getSupabaseBrowserClient().auth.getSession();
+  if (error || !data.session) {
+    throw new Error("Админ эрхээр нэвтэрнэ үү.");
+  }
+  return data.session.access_token;
+}

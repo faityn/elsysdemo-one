@@ -13,6 +13,7 @@ import {
   Boxes,
   FileImage,
   LayoutDashboard,
+  LogOut,
   Menu as MenuIcon,
   Package,
   Phone,
@@ -28,6 +29,7 @@ import {
   saveSiteContent,
   type SiteContent,
 } from "@/lib/site-content";
+import { getSupabaseBrowserClient } from "@/lib/supabase";
 
 export type AdminSection =
   | "overview"
@@ -60,12 +62,12 @@ const navigation: {
     href: "/admin/products",
   },
   { id: "categories", label: "Ангилал", icon: Tags, href: "/admin/categories" },
-  {
-    id: "uploads",
-    label: "Зураг / Uploads",
-    icon: Upload,
-    href: "/admin/uploads",
-  },
+  // {
+  //   id: "uploads",
+  //   label: "Зураг / Uploads",
+  //   icon: Upload,
+  //   href: "/admin/uploads",
+  // },
   {
     id: "about",
     label: "Танилцуулга",
@@ -192,6 +194,10 @@ export default function AdminFrame({
     const content = await loadSiteContent();
     await saveSiteContent(content);
   }
+  async function logout() {
+    await getSupabaseBrowserClient().auth.signOut();
+    window.location.assign("/admin/login");
+  }
   return (
     <div className="min-h-screen bg-[#f3f5f1] text-[#202a24] lg:flex">
       <aside className="flex w-full shrink-0 flex-col bg-[#17251f] text-white lg:sticky lg:top-0 lg:h-screen lg:w-[238px]">
@@ -255,6 +261,14 @@ export default function AdminFrame({
             >
               <ArrowUpRight size={14} /> Сайт үзэх
             </a>
+            <button
+              type="button"
+              onClick={logout}
+              className="inline-flex items-center gap-1.5 rounded border border-[#dfe4df] px-2.5 py-2 text-[11px] font-semibold text-[#49544c] hover:bg-[#f6f7f4] sm:px-3"
+            >
+              <LogOut size={14} />{" "}
+              <span className="hidden sm:inline">Гарах</span>
+            </button>
             <button
               type="button"
               onClick={publish}

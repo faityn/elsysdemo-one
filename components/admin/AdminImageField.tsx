@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useState } from "react";
 import { Upload } from "lucide-react";
+import { getAdminAccessToken } from "@/lib/supabase";
 import { Field } from "./AdminFrame";
 
 export default function AdminImageField({
@@ -62,8 +63,10 @@ export default function AdminImageField({
           type: "image/webp",
         }),
       );
+      const accessToken = await getAdminAccessToken();
       const response = await fetch("/api/uploads", {
         method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}` },
         body: formData,
       });
       const result = (await response.json()) as {
